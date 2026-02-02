@@ -33,7 +33,6 @@ class AuthController extends Controller
         return redirect()->route('dashboard')->with('success', 'تم التسجيل بنجاح!');
     }
 
-    // Login (Username OR Email)
     public function login(Request $request)
     {
         $request->validate([

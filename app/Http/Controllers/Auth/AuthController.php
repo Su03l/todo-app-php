@@ -28,7 +28,6 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        // 3. Auto Login (Optional)
         Auth::login($user);
 
         return redirect()->route('dashboard')->with('success', 'تم التسجيل بنجاح!');

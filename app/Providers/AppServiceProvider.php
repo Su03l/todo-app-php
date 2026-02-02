@@ -13,9 +13,6 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 
-    /**
-     * Bootstrap any application services.
-     */
     public function boot(): void
     {
         // إجبار التطبيق على استخدام الهوست الحالي (لحل مشاكل الروابط في الجوال/المحاكي)

@@ -20,7 +20,6 @@ class AuthController extends Controller
             'password' => 'required|string|min:8|confirmed', // confirmed تعني لازم حقل password_confirmation
         ]);
 
-        // 2. Create User
         $user = User::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,

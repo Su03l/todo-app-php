@@ -60,7 +60,6 @@ class UserController extends Controller
             ]);
         }
 
-        // تحديث كلمة المرور
         $user->update([
             'password' => Hash::make($request->new_password)
         ]);

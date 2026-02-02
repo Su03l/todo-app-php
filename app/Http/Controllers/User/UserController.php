@@ -45,7 +45,6 @@ class UserController extends Controller
         return back()->with('success', 'تم تحديث البيانات بنجاح.');
     }
 
-    // تغيير كلمة المرور
     public function changePassword(Request $request)
     {
         $request->validate([

@@ -32,7 +32,6 @@ class UserController extends Controller
             if ($user->avatar) {
                 Storage::disk('public')->delete($user->avatar);
             }
-            // تخزين الجديدة
             $path = $request->file('avatar')->store('avatars', 'public');
             $user->avatar = $path;
         }

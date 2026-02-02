@@ -1,115 +1,115 @@
-# Enjaz - Task Management Application
+# إنجاز - تطبيق إدارة المهام
 
-Enjaz is a modern, responsive task management application built with Laravel. It features a clean user interface designed for both web and mobile environments, focusing on simplicity and productivity.
+إنجاز هو تطبيق عصري وسريع الاستجابة لإدارة المهام مبني باستخدام إطار عمل Laravel. يتميز التطبيق بواجهة مستخدم نظيفة مصممة لتعمل بكفاءة على كل من الويب والأجهزة المحمولة، مع التركيز على البساطة والإنتاجية.
 
-## Features
+## المميزات
 
-- **User Authentication**: Secure registration and login system.
-- **Task Management**: Create, read, update, and delete tasks (CRUD).
-- **Task Status**: Toggle tasks between completed and pending states.
-- **Profile Management**: Update user information and profile picture.
-- **Responsive Design**: Fully optimized for mobile devices with safe-area support.
-- **Modern UI**: Built with Tailwind CSS v4 for a sleek, professional look.
+- **نظام المصادقة**: تسجيل دخول وإنشاء حساب آمن للمستخدمين.
+- **إدارة المهام**: إنشاء، قراءة، تحديث، وحذف المهام (CRUD).
+- **حالة المهام**: إمكانية تحديد المهام كمكتملة أو قيد التنفيذ.
+- **إدارة الملف الشخصي**: تحديث بيانات المستخدم والصورة الشخصية.
+- **تصميم متجاوب**: محسن بالكامل للأجهزة المحمولة مع دعم المناطق الآمنة للشاشة.
+- **واجهة عصرية**: مبنية باستخدام Tailwind CSS v4 لمظهر أنيق واحترافي.
 
-## Technology Stack
+## التقنيات المستخدمة
 
-- **Backend**: Laravel 11 (PHP 8.2+)
-- **Frontend**: Blade Templates, Tailwind CSS v4
-- **Database**: SQLite (Default) / MySQL
-- **JavaScript**: Vanilla JS & Alpine.js (for interactivity)
-- **Build Tool**: Vite
+- **الواجهة الخلفية**: Laravel 11 (PHP 8.2+)
+- **الواجهة الأمامية**: Blade Templates, Tailwind CSS v4
+- **قاعدة البيانات**: SQLite (الافتراضي) / MySQL
+- **الجافاسكريبت**: Vanilla JS & Alpine.js (للتفاعل)
+- **أداة البناء**: Vite
 
-## Prerequisites
+## المتطلبات
 
-Ensure you have the following installed on your machine:
+تأكد من تثبيت البرمجيات التالية على جهازك:
 
-- PHP 8.2 or higher
+- PHP 8.2 أو أحدث
 - Composer
 - Node.js & NPM
 
-## Installation
+## التثبيت والإعداد
 
-1. **Clone the repository**
+1. **نسخ المستودع**
    ```bash
    git clone https://github.com/yourusername/enjaz.git
    cd enjaz
    ```
 
-2. **Install PHP dependencies**
+2. **تثبيت مكتبات PHP**
    ```bash
    composer install
    ```
 
-3. **Install Node.js dependencies**
+3. **تثبيت مكتبات Node.js**
    ```bash
    npm install
    ```
 
-4. **Environment Configuration**
-   Copy the example environment file and generate the application key:
+4. **إعداد البيئة**
+   قم بنسخ ملف البيئة الافتراضي وتوليد مفتاح التطبيق:
    ```bash
    cp .env.example .env
    php artisan key:generate
    ```
 
-5. **Database Setup**
-   Create the SQLite database file (if using SQLite) and run migrations:
+5. **إعداد قاعدة البيانات**
+   قم بإنشاء ملف قاعدة بيانات SQLite (إذا كنت تستخدمها) وتشغيل التهجير:
    ```bash
    touch database/database.sqlite
    php artisan migrate
    ```
 
-6. **Link Storage**
-   Create a symbolic link for public file storage (for avatars):
+6. **ربط التخزين**
+   قم بإنشاء اختصار لملفات التخزين العامة (للصور الشخصية):
    ```bash
    php artisan storage:link
    ```
 
-## Running the Application
+## تشغيل التطبيق
 
-### For Web Development (Localhost)
+### للتطوير على الويب (Localhost)
 
-1. Start the Vite development server:
+1. تشغيل خادم Vite:
    ```bash
    npm run dev
    ```
 
-2. Start the Laravel server:
+2. تشغيل خادم Laravel:
    ```bash
    php artisan serve
    ```
 
-3. Access the application at `http://localhost:8000`.
+3. افتح التطبيق عبر الرابط: `http://localhost:8000`.
 
-### For Mobile Emulator (Android Studio)
+### للمحاكي (Android Emulator)
 
-To run the application on an Android Emulator and ensure proper connectivity:
+لتشغيل التطبيق على محاكي أندرويد وضمان الاتصال الصحيح:
 
-1. Start the Laravel server on all network interfaces:
+1. تشغيل خادم Laravel على جميع واجهات الشبكة:
    ```bash
    php artisan serve --host=0.0.0.0 --port=8000
    ```
 
-2. Start the Vite server:
+2. تشغيل خادم Vite:
    ```bash
    npm run dev
    ```
 
-3. Open the browser inside the Android Emulator and navigate to:
+3. افتح المتصفح داخل المحاكي واذهب إلى الرابط:
    `http://10.0.2.2:8000`
 
-   *Note: `10.0.2.2` is the special alias to your host machine's localhost from within the Android emulator.*
+   *ملاحظة: العنوان `10.0.2.2` هو عنوان خاص داخل المحاكي يشير إلى المضيف المحلي (Localhost) لجهاز الكمبيوتر الخاص بك.*
 
-## Project Structure
+## هيكلية المشروع
 
-- **app/Http/Controllers**: Contains logic for Auth, Tasks, and User Profile.
-- **resources/views**: Blade templates for the UI.
-  - **auth/**: Login and Register pages (Blade Forms).
-  - **tasks/**: Main dashboard and task management.
-  - **layouts/**: Main application layout file.
-- **routes/web.php**: Application routes definition.
-- **vite.config.js**: Frontend build configuration.
+- **app/Http/Controllers**: يحتوي على المنطق البرمجي للمصادقة، المهام، والملف الشخصي.
+- **resources/views**: قوالب Blade لواجهة المستخدم.
+  - **auth/**: صفحات الدخول والتسجيل.
+  - **tasks/**: لوحة التحكم وإدارة المهام.
+  - **layouts/**: ملف التخطيط الرئيسي للتطبيق.
+- **routes/web.php**: تعريف مسارات التطبيق.
+- **vite.config.js**: إعدادات بناء الواجهة الأمامية.
 
-## License
+## الترخيص
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+إطار عمل Laravel هو برنامج مفتوح المصدر مرخص بموجب [رخصة MIT](https://opensource.org/licenses/MIT).

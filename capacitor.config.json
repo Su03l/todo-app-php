@@ -1,0 +1,9 @@
+{
+    "appId": "com.suliman.tasks",
+    "appName": "MyTaskApp",
+    "webDir": "public",
+    "server": {
+        "url": "http://192.168.8.28:8000",
+        "cleartext": true
+    }
+}

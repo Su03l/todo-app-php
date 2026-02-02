@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Register any application services.
+     */
+    public function register(): void
+    {
+        //
+    }
+
+    /**
+     * Bootstrap any application services.
+     */
+    public function boot(): void
+    {
+        // إجبار التطبيق على استخدام الهوست الحالي (لحل مشاكل الروابط في الجوال/المحاكي)
+        if (request()->hasHeader('Host')) {
+            $host = request()->getHost();
+            $port = request()->getPort();
+            $scheme = request()->getScheme();
+
+            // إذا كان المنفذ موجوداً وغير قياسي (80/443)، نضيفه
+            $url = $scheme . '://' . $host . ($port && !in_array($port, [80, 443]) ? ':' . $port : '');
+
+            URL::forceRootUrl($url);
+
+            // ❌ تم إزالة سطر livewire.asset_url لأنه يسبب المشكلة
+        }
+    }
+}

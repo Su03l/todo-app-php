@@ -15,7 +15,6 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        // إجبار التطبيق على استخدام الهوست الحالي (لحل مشاكل الروابط في الجوال/المحاكي)
         if (request()->hasHeader('Host')) {
             $host = request()->getHost();
             $port = request()->getPort();
